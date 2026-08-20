@@ -46,9 +46,11 @@
   }
 
   .wrap{
+    position:relative;
+    z-index:1;
     max-width:960px;
     margin:0 auto;
-    padding:var(--s5) var(--s3) 168px;
+    padding:var(--s5) var(--s3) 300px;
   }
 
   /* ============ HERO ============ */
@@ -281,9 +283,24 @@
 
   @media (max-width:799px){
     .mockup{ padding-right:38px; }
-    .stack,.phone{ width:198px; }
+    .stack,.phone{ width:186px; }
     .phone--back{ top:30px; left:48px; }
-    .screen{ height:378px; }
+    .screen{ height:354px; }
+  }
+
+  /* ============ 마을 풍경 ============ */
+  .village{
+    position:fixed;
+    left:0; right:0;
+    bottom:126px;
+    height:200px;
+    z-index:0;
+    pointer-events:none;
+  }
+  .village svg{ display:block; width:100%; height:100%; }
+  @media (max-width:799px){
+    .village{ height:118px; bottom:118px; }
+    .mockup{ padding:var(--s2) 44px var(--s2) 0; }
   }
 
   /* ============ CTA (floating bottom bar) ============ */
@@ -291,12 +308,8 @@
     position:fixed;
     left:0; right:0; bottom:0;
     z-index:50;
-    background:rgba(247,242,231,0.92);
-    -webkit-backdrop-filter:blur(12px);
-    backdrop-filter:blur(12px);
-    border-top:1px solid var(--line);
-    box-shadow:0 -6px 24px rgba(42,38,32,0.10);
-    padding:14px var(--s3) calc(14px + env(safe-area-inset-bottom));
+    background:linear-gradient(to bottom,rgba(247,242,231,0) 0%,rgba(247,242,231,.88) 26%,var(--paper) 48%);
+    padding:44px var(--s3) calc(16px + env(safe-area-inset-bottom));
     text-align:center;
   }
   .cta-inner{
@@ -458,6 +471,37 @@
     </div>
   </section>
 </div>
+
+  <div class="village" aria-hidden="true">
+    <svg viewBox="0 0 1200 210" preserveAspectRatio="xMidYEnd slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1052" cy="40" r="30" fill="rgba(192,138,40,.20)"/>
+      <path d="M0 118 Q180 82 372 112 T744 100 T1010 116 L1200 92 L1200 210 L0 210Z" fill="rgba(76,107,80,.10)"/>
+      <g fill="rgba(76,107,80,.20)">
+        <rect x="42" y="126" width="66" height="60" rx="4"/><path d="M30 128 75 96 120 128Z"/>
+        <rect x="176" y="142" width="52" height="44" rx="4"/><path d="M166 144 202 118 238 144Z"/>
+        <rect x="462" y="132" width="58" height="54" rx="4"/><path d="M450 134 491 106 532 134Z"/>
+        <rect x="608" y="146" width="48" height="40" rx="4"/><path d="M598 148 632 122 666 148Z"/>
+        <rect x="922" y="130" width="62" height="56" rx="4"/><path d="M910 132 953 102 996 132Z"/>
+        <rect x="1064" y="144" width="52" height="42" rx="4"/><path d="M1054 146 1090 120 1126 146Z"/>
+      </g>
+      <g fill="rgba(247,242,231,.8)">
+        <rect x="63" y="145" width="20" height="21" rx="3"/><rect x="192" y="157" width="16" height="17" rx="3"/>
+        <rect x="482" y="150" width="18" height="19" rx="3"/><rect x="622" y="161" width="15" height="16" rx="3"/>
+        <rect x="941" y="149" width="18" height="19" rx="3"/><rect x="1080" y="159" width="15" height="16" rx="3"/>
+      </g>
+      <g fill="rgba(76,107,80,.24)">
+        <circle cx="292" cy="152" r="23"/><rect x="287" y="168" width="8" height="24" rx="3"/>
+        <circle cx="800" cy="156" r="20"/><rect x="795" y="170" width="8" height="22" rx="3"/>
+        <circle cx="396" cy="160" r="17"/><rect x="392" y="172" width="7" height="18" rx="3"/>
+      </g>
+      <path d="M0 176 Q600 160 1200 176 L1200 210 L0 210Z" fill="rgba(76,107,80,.18)"/>
+      <path d="M690 210 Q736 184 756 179 Q776 184 822 210Z" fill="rgba(192,138,40,.26)"/>
+      <g fill="rgba(76,107,80,.55)">
+        <circle cx="734" cy="158" r="10"/><path d="M726 170h16l4 30h-6l-2-17-2 17h-7l-2-17-2 17h-6z"/>
+        <circle cx="766" cy="163" r="9"/><path d="M759 174h14l4 26h-5l-3-15-2 15h-6l-2-15-2 15h-5z"/>
+      </g>
+    </svg>
+  </div>
 
   <section class="cta">
     <div class="cta-inner">
